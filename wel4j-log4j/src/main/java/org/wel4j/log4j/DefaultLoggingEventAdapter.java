@@ -19,24 +19,37 @@ package org.wel4j.log4j;
 import org.apache.log4j.spi.LoggingEvent;
 import org.wel4j.WindowsEvent;
 
-
 public class DefaultLoggingEventAdapter implements LoggingEventAdapter {
 
+	private static final int DEFAULT_EVENT_ID = 0x1000;
+	
+	private static final int DEFAULT_EVENT_CATEGORY = 0x1;
+	
 	private LevelAdapter levelAdapter = new DefaultLevelAdapter();
+
+	private int eventId = DEFAULT_EVENT_ID;
+	
+	private int eventCategory = DEFAULT_EVENT_CATEGORY;
 	
 	public WindowsEvent windowsEventFromLoggingEvent(LoggingEvent loggingEvent) {
-		// TODO Auto-generated method stub
 		final WindowsEvent windowsEvent = new WindowsEvent();
-		loggingEvent.getLevel();
 		windowsEvent.setMessage(loggingEvent.getRenderedMessage());
-		windowsEvent.setEventID(0);
+		windowsEvent.setEventID(eventId);
 		windowsEvent.setEventSeverity(levelAdapter.windowsEventSeverityFromLevel(loggingEvent.getLevel()));
-		windowsEvent.setEventCategory(0);
+		windowsEvent.setEventCategory(eventCategory);
 		
 		return windowsEvent;
 	}
 
 	public void setLevelAdapter(LevelAdapter levelAdapter) {
 		this.levelAdapter = levelAdapter;
+	}
+
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
+	}
+	
+	public void setEventCategory(int eventCategory) {
+		this.eventCategory = eventCategory;
 	}
 }

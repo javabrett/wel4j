@@ -16,6 +16,7 @@
 
 package org.wel4j.jul;
 
+import java.util.logging.LogManager;
 import java.util.logging.LogRecord;
 
 import org.wel4j.WindowsEvent;
@@ -23,15 +24,44 @@ import org.wel4j.WindowsEvent;
 
 public class DefaultLogRecordAdapter implements LogRecordAdapter {
 
+	private static final int DEFAULT_EVENT_ID = 0x1000;
+	
+	private static final int DEFAULT_EVENT_CATEGORY = 0x1;
+	
 	private LevelAdapter levelAdapter = new DefaultLevelAdapter();
 	
+	private int eventId = DEFAULT_EVENT_ID;
+	
+	private int eventCategory = DEFAULT_EVENT_CATEGORY;
+	
+	public DefaultLogRecordAdapter() {
+		final LogManager logManager = LogManager.getLogManager();
+		try {
+			final String eventIdString = logManager.getProperty(getClass().getName() + ".eventId");
+			if (eventIdString != null && eventIdString.length() > 0) {
+				eventId = Integer.parseInt(eventIdString);	
+			}
+		} catch (NumberFormatException e) {
+			System.err.println("Failed to convert eventId setting to an int, using default.");
+			e.printStackTrace(System.err);
+		}
+		try {
+			final String eventCategoryString = logManager.getProperty(getClass().getName() + ".eventCategory");
+			if (eventCategoryString != null && eventCategoryString.length() > 0) {
+				eventCategory = Integer.parseInt(eventCategoryString);	
+			}
+		} catch (NumberFormatException e) {
+			System.err.println("Failed to convert eventCategory setting to an int, using default.");
+			e.printStackTrace(System.err);
+		}
+	}
+	
 	public WindowsEvent windowsEventFromLogRecord(LogRecord logRecord) {
-		// TODO Auto-generated method stub
 		final WindowsEvent windowsEvent = new WindowsEvent();
 		windowsEvent.setMessage(logRecord.getMessage());
-		windowsEvent.setEventID(0);
+		windowsEvent.setEventID(eventId);
 		windowsEvent.setEventSeverity(levelAdapter.windowsEventSeverityFromLevel(logRecord.getLevel()));
-		windowsEvent.setEventCategory(0);
+		windowsEvent.setEventCategory(eventCategory);
 		
 		return windowsEvent;
 	}

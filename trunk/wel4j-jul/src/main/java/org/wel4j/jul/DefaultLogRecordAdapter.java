@@ -69,4 +69,12 @@ public class DefaultLogRecordAdapter implements LogRecordAdapter {
 	public void setLevelAdapter(LevelAdapter levelAdapter) {
 		this.levelAdapter = levelAdapter;
 	}
+	
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
+	}
+	
+	public void setEventCategory(int eventCategory) {
+		this.eventCategory = eventCategory;
+	}
 }

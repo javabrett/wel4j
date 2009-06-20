@@ -28,12 +28,31 @@ public class WindowsEventLogAppender extends AppenderSkeleton implements
 
 	private LoggingEventAdapter loggingEventAdapter = new DefaultLoggingEventAdapter();
 	
+	private Integer eventId = null;
+	
+	private Integer eventCategory = null;
+	
 	@Override
 	protected void append(LoggingEvent loggingEvent) {
+		
+		if (!isAsSevereAsThreshold(loggingEvent.getLevel())) {
+			return;
+		}
+		
 		final WindowsEvent windowsEvent = loggingEventAdapter.windowsEventFromLoggingEvent(loggingEvent);
+		
 		if (windowsEvent.getEventSeverity() == null) {
 			return;
 		}
+		
+		if (eventId != null) {
+			windowsEvent.setEventID(eventId);
+		}
+		
+		if (eventCategory != null) {
+			windowsEvent.setEventCategory(eventCategory);
+		}
+		
 		WindowsEventLog.log(windowsEvent);
 	}
 
@@ -47,5 +66,13 @@ public class WindowsEventLogAppender extends AppenderSkeleton implements
 	
 	public void setLoggingEventAdapter(LoggingEventAdapter loggingEventAdapter) {
 		this.loggingEventAdapter = loggingEventAdapter;
+	}
+	
+	public void setEventId(Integer eventId) {
+		this.eventId = eventId;
+	}
+	
+	public void setEventCategory(Integer eventCategory) {
+		this.eventCategory = eventCategory;
 	}
 }

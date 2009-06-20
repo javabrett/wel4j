@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>wel4j-parent</artifactId>
+		<groupId>org.wel4j</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.wel4j</groupId>
+	<artifactId>wel4j-native</artifactId>
+	<packaging>dll</packaging>
+	<name>wel4j-native</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>Native</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.wel4j</groupId>
+			<artifactId>wel4j-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<version>1.0-alpha-3-SNAPSHOT</version>
+				<extensions>true</extensions>
+				<configuration>
+
+					<compilerProvider>msvc</compilerProvider>
+
+					<compilerExecutable>"C:/Program Files/Microsoft Visual Studio 9.0/VC/bin/cl.exe"</compilerExecutable>
+
+					<compilerStartOptions>
+						<compilerStartOption>/MD /W4 /showIncludes</compilerStartOption>
+					</compilerStartOptions>/
+
+					<javahOS>win32</javahOS>
+
+					<sources>
+						<source>
+							<directory>src/main/native</directory>
+							<fileNames>
+								<fileName>EventLogHandler.cpp</fileName>
+							</fileNames>
+						</source>
+
+						<source>
+							<directory>C:\Program Files\Microsoft Visual Studio 9.0\VC\include</directory>
+						</source>
+						
+						<source>
+							<directory>C:\Program Files\Microsoft Platform SDK\Include</directory>
+						</source>
+						
+					</sources>
+
+					<!-- deploy the accompany .lib file as well -->
+					<linkerSecondaryOutputExtensions>lib</linkerSecondaryOutputExtensions>
+
+					<linkerStartOptions>
+						<linkerStartOption> /INCREMENTAL:NO /DLL user32.lib advapi32.lib
+							oldnames.lib kernel32.lib </linkerStartOption>
+					</linkerStartOptions>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>javah</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<classNames>
+								<className>org.wel4j.WindowsEventLog</className>
+							</classNames>
+						</configuration>
+						<goals>
+							<goal>javah</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>

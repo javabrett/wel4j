@@ -20,13 +20,24 @@ import org.wel4j.WindowsEvent;
 
 public class WindowsEventLog {
 
+	private static final String BASE_DLL_NAME = "wel4j";
+	
+	private static final String X86_DLL_NAME = BASE_DLL_NAME + "32";
+	
+	private static final String X64_DLL_NAME = BASE_DLL_NAME + "64";
+	
 	static {
-		if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
-			if (System.getProperty("os.arch").indexOf("64") != -1) {
-				System.loadLibrary("JNIEventLog64");
-			} else {
-				System.loadLibrary("JNIEventLog32");		
+		try {
+			if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
+				if (System.getProperty("os.arch").indexOf("64") != -1) {
+					System.loadLibrary(X64_DLL_NAME);
+				} else {
+					System.loadLibrary(X86_DLL_NAME);		
+				}
 			}
+		} catch (Exception e) {
+			System.err.println("Failed to load native JNI library.");
+			e.printStackTrace();
 		}
 	}
 	

@@ -46,7 +46,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\Release/JNIEventLog.tlb"
+        TypeLibraryName=".\Release/wel4j.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -57,7 +57,7 @@
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
-				PrecompiledHeaderFile=".\Release/JNIEventLog.pch"
+        PrecompiledHeaderFile=".\Release/wel4j.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
@@ -77,13 +77,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="Output/JNIEventLog32.dll"
+        OutputFile="Output/wel4j32.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				ProgramDatabaseFile=".\Release/JNIEventLog.pdb"
+        ProgramDatabaseFile=".\Release/wel4j.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary=".\Release/JNIEventLog.lib"
+        ImportLibrary=".\Release/wel4j.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -98,7 +98,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Release/JNIEventLog.bsc"
+        OutputFile=".\Release/wel4j.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -138,7 +138,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\Debug/JNIEventLog.tlb"
+        TypeLibraryName=".\Debug/wel4j.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -148,7 +148,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/JNIEventLog.pch"
+        PrecompiledHeaderFile=".\Debug/wel4j.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -169,14 +169,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../SampleApp/JNIEventLog.dll"
+				OutputFile="./Output/wel4j32.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/JNIEventLog.pdb"
+        ProgramDatabaseFile=".\Debug/wel4j.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary=".\Debug/JNIEventLog.lib"
+        ImportLibrary=".\Debug/wel4j.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -191,7 +191,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Debug/JNIEventLog.bsc"
+        OutputFile=".\Debug/wel4j.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -231,7 +231,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="1"
-				TypeLibraryName=".\Debug/JNIEventLog.tlb"
+        TypeLibraryName=".\Debug/wel4j.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -241,7 +241,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/JNIEventLog.pch"
+        PrecompiledHeaderFile=".\Debug/wel4j.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -262,14 +262,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../SampleApp/JNIEventLog.dll"
+				OutputFile="./Output/wel4j.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/JNIEventLog.pdb"
+				ProgramDatabaseFile=".\Debug/wel4j.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary=".\Debug/JNIEventLog.lib"
+        ImportLibrary=".\Debug/wel4j.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -284,7 +284,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Debug/JNIEventLog.bsc"
+        OutputFile=".\Debug/wel4j.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -324,7 +324,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="3"
-				TypeLibraryName=".\Release/JNIEventLog.tlb"
+        TypeLibraryName=".\Release/wel4j.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -336,7 +336,7 @@
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
-				PrecompiledHeaderFile=".\Release/JNIEventLog.pch"
+        PrecompiledHeaderFile=".\Release/wel4j.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
@@ -357,14 +357,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="Output/JNIEventLog.dll"
+        OutputFile="Output/wel4j.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				ModuleDefinitionFile=".\JNIEventLog.def"
-				ProgramDatabaseFile=".\Release/JNIEventLog.pdb"
+        ProgramDatabaseFile=".\Release/wel4j.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary=".\Release/JNIEventLog.lib"
+        ImportLibrary=".\Release/wel4j.lib"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -379,7 +378,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Release/JNIEventLog.bsc"
+        OutputFile=".\Release/wel4j.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -419,7 +418,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="3"
-				TypeLibraryName=".\Debug/JNIEventLog.tlb"
+        TypeLibraryName=".\Debug/wel4j.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -429,7 +428,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/JNIEventLog.pch"
+        PrecompiledHeaderFile=".\Debug/wel4j.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -450,14 +449,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../SampleApp/JNIEventLog.dll"
+        OutputFile="./Output/wel4j.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/JNIEventLog.pdb"
+				ProgramDatabaseFile=".\Debug/wel4j.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary=".\Debug/JNIEventLog.lib"
+				ImportLibrary=".\Debug/wel4j.lib"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -472,7 +471,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Debug/JNIEventLog.bsc"
+				OutputFile=".\Debug/wel4j.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -512,7 +511,7 @@
 				MkTypLibCompatible="true"
 				SuppressStartupBanner="true"
 				TargetEnvironment="3"
-				TypeLibraryName=".\Debug/JNIEventLog.tlb"
+        TypeLibraryName=".\Debug/wel4j.tlb"
 				HeaderFileName=""
 			/>
 			<Tool
@@ -522,7 +521,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
-				PrecompiledHeaderFile=".\Debug/JNIEventLog.pch"
+        PrecompiledHeaderFile=".\Debug/wel4j.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -544,15 +543,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="../SampleApp/JNIEventLog.dll"
+				OutputFile="./Output/wel4j.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				ModuleDefinitionFile=".\JNIEventLog.def"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/JNIEventLog.pdb"
+        ProgramDatabaseFile=".\Debug/wel4j.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary=".\Debug/JNIEventLog.lib"
+        ImportLibrary=".\Debug/wel4j.lib"
 				TargetMachine="17"
 			/>
 			<Tool
@@ -567,7 +565,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\Debug/JNIEventLog.bsc"
+        OutputFile=".\Debug/wel4j.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"

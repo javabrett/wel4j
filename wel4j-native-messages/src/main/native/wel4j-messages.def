@@ -1,0 +1,6 @@
+LIBRARY		"wel4j-messages.dll"
+
+EXPORTS
+	DllRegisterServer		PRIVATE
+	DllUnregisterServer		PRIVATE
+	

@@ -29,6 +29,8 @@ public class DefaultLogRecordAdapter implements LogRecordAdapter {
 	private static final int DEFAULT_EVENT_CATEGORY = 0x1;
 	
 	private LevelAdapter levelAdapter = new DefaultLevelAdapter();
+
+	private String sourceName = null;
 	
 	private int eventId = DEFAULT_EVENT_ID;
 	
@@ -36,6 +38,9 @@ public class DefaultLogRecordAdapter implements LogRecordAdapter {
 	
 	public DefaultLogRecordAdapter() {
 		final LogManager logManager = LogManager.getLogManager();
+		
+		sourceName = logManager.getProperty(getClass().getName() + ".sourceName");
+
 		try {
 			final String eventIdString = logManager.getProperty(getClass().getName() + ".eventId");
 			if (eventIdString != null && eventIdString.length() > 0) {
@@ -58,6 +63,7 @@ public class DefaultLogRecordAdapter implements LogRecordAdapter {
 	
 	public WindowsEvent windowsEventFromLogRecord(LogRecord logRecord) {
 		final WindowsEvent windowsEvent = new WindowsEvent();
+		windowsEvent.setSourceName(sourceName);
 		windowsEvent.setMessage(logRecord.getMessage());
 		windowsEvent.setEventID(eventId);
 		windowsEvent.setEventSeverity(levelAdapter.windowsEventSeverityFromLevel(logRecord.getLevel()));
@@ -68,6 +74,10 @@ public class DefaultLogRecordAdapter implements LogRecordAdapter {
 	
 	public void setLevelAdapter(LevelAdapter levelAdapter) {
 		this.levelAdapter = levelAdapter;
+	}
+	
+	public void setSourceName(String sourceName) {
+		this.sourceName = sourceName;
 	}
 	
 	public void setEventId(int eventId) {

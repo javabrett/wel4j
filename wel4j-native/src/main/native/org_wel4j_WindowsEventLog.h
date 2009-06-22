@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     org_wel4j_WindowsEventLog
  * Method:    reportEvent
- * Signature: (Ljava/lang/String;III)V
+ * Signature: (Ljava/lang/String;Ljava/lang/String;III)V
  */
 JNIEXPORT void JNICALL Java_org_wel4j_WindowsEventLog_reportEvent
-  (JNIEnv *, jclass, jstring, jint, jint, jint);
+  (JNIEnv *, jclass, jstring, jstring, jint, jint, jint);
 
 #ifdef __cplusplus
 }

@@ -6,25 +6,36 @@
 #include "Definitions.h"
 
 /*******************************************************************************
-**This method is called by the Java application through JNI for loggine events in the
-**Windows Event Viewer
+**This method is called by the Java application through JNI for logging events in the
+**Windows Event Log
 /*******************************************************************************/
 JNIEXPORT void JNICALL Java_org_wel4j_WindowsEventLog_reportEvent
-  (JNIEnv *env, jclass clazz, jstring message, jint eventID, jint eventSeverity, jint eventCategory)
+  (JNIEnv *env, jclass clazz, jstring sourceName, jstring message, jint eventID, jint eventSeverity, jint eventCategory)
 {
+	const char *source = env->GetStringUTFChars(sourceName, 0);
 	const char *msg = env->GetStringUTFChars(message, 0);
-
+	
 	DWORD wEventID = (DWORD)eventID;
 	WORD  wEventSeverity = (WORD)eventSeverity;
 	WORD  wEventCategory = (WORD)eventCategory;		
 	
+	//convert const char * to WCHAR
+	WCHAR *szSource;
+	szSource = (WCHAR *)malloc( 2 * strlen(source) + 2);
+
+	for(unsigned int i = 0; i < strlen(msg); i++)
+	{
+		szSource[i] = (WCHAR)source[i];
+	}	     
+	szSource[strlen(source)] = L'\0';
+
     //Get the handle to the event source
 	HANDLE h = RegisterEventSource(NULL,  // uses local computer 
-							APPLICATION_NAME); // source name 
+							(LPCWSTR) szSource); // source name 
 
     if(h != NULL)
 	{
-		//convert jstring inot WCHAR
+		//convert jstring into WCHAR
 		WCHAR *szMsg[1];
 		szMsg[0] = (WCHAR *)malloc( 2 * strlen(msg) + 2);
 

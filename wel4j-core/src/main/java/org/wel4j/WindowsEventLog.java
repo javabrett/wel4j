@@ -41,14 +41,17 @@ public class WindowsEventLog {
 		}
 	}
 	
-	private native static void reportEvent(String eventMessage, int eventId, int eventSeverity, int eventCategory);
+	private native static void reportEvent(String sourceName, String eventMessage, int eventId, int eventSeverity, int eventCategory);
 	
-	public static void log(String eventMessage, int eventId, int eventSeverity, int eventCategory) {
-		reportEvent(eventMessage, eventId, eventSeverity, eventCategory);
+	public static void log(String sourceName, String eventMessage, int eventId, int eventSeverity, int eventCategory) {
+		if (sourceName == null || sourceName.length() == 0) {
+			sourceName = BASE_DLL_NAME;
+		}
+		reportEvent(sourceName, eventMessage, eventId, eventSeverity, eventCategory);
 	}
 	
 	public static void log(WindowsEvent windowsEvent) {
-		log(windowsEvent.getMessage(), windowsEvent.getEventID(), windowsEvent.getEventSeverity().getSeverityCode(), windowsEvent.getEventCategory());
+		log(windowsEvent.getSourceName(), windowsEvent.getMessage(), windowsEvent.getEventID(), windowsEvent.getEventSeverity().getSeverityCode(), windowsEvent.getEventCategory());
 	}
 }
 	

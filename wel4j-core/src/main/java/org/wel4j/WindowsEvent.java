@@ -18,6 +18,8 @@ package org.wel4j;
 
 public class WindowsEvent {
 
+	private String sourceName;
+	
 	private String message;
 	
 	private int eventID;
@@ -26,6 +28,14 @@ public class WindowsEvent {
 	
 	private int eventCategory;
 
+	public String getSourceName() {
+		return sourceName;
+	}
+	
+	public void setSourceName(String sourceName) {
+		this.sourceName = sourceName;
+	}
+	
 	public String getMessage() {
 		return message;
 	}

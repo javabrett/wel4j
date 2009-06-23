@@ -26,7 +26,11 @@ public class WindowsEventLog {
 	
 	private static final String X64_DLL_NAME = BASE_DLL_NAME + "64";
 	
+	private static final boolean DEBUG;
+	
 	static {
+		DEBUG = (System.getProperty("org.wel4j.debug") != null);
+
 		try {
 			if (System.getProperty("os.name").toLowerCase().indexOf("win") != -1) {
 				if (System.getProperty("os.arch").indexOf("64") != -1) {
@@ -47,7 +51,29 @@ public class WindowsEventLog {
 		if (sourceName == null || sourceName.length() == 0) {
 			sourceName = BASE_DLL_NAME;
 		}
+		
+		StringBuilder sb = null;
+		if (DEBUG) {
+			sb = new StringBuilder("[sourceName=")
+				.append(sourceName)
+				.append(",eventMessage=")
+				.append(eventMessage)
+				.append(",eventId=")
+				.append(eventId)
+				.append(",eventSeverity=")
+				.append(eventSeverity)
+				.append(",eventCategory=")
+				.append(eventCategory)
+				.append("].");
+			
+			System.out.println("Logging event " + sb.toString());
+		}
+		
 		reportEvent(sourceName, eventMessage, eventId, eventSeverity, eventCategory);
+		
+		if (DEBUG) {
+				System.out.println("Event logging complete for " + sb.toString());
+		}
 	}
 	
 	public static void log(WindowsEvent windowsEvent) {

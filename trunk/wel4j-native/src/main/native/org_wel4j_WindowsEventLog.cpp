@@ -58,7 +58,9 @@ JNIEXPORT void JNICALL Java_org_wel4j_WindowsEventLog_reportEvent
 		
 		DeregisterEventSource(h); 
 		free(szMsg[0]);
+		free(szSource);
 	}
 
 	env->ReleaseStringUTFChars(message, msg);
+	env->ReleaseStringUTFChars(sourceName, source);
 }

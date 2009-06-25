@@ -23,7 +23,7 @@ JNIEXPORT void JNICALL Java_org_wel4j_WindowsEventLog_reportEvent
 	WCHAR *szSource;
 	szSource = (WCHAR *)malloc( 2 * strlen(source) + 2);
 
-	for(unsigned int i = 0; i < strlen(msg); i++)
+	for(unsigned int i = 0; i < strlen(source); i++)
 	{
 		szSource[i] = (WCHAR)source[i];
 	}	     

@@ -21,9 +21,9 @@ import org.wel4j.WindowsEvent;
 
 public class DefaultLoggingEventAdapter implements LoggingEventAdapter {
 
-	private static final int DEFAULT_EVENT_ID = 0x1000;
+	private static final int DEFAULT_EVENT_ID = 0x0001;
 	
-	private static final int DEFAULT_EVENT_CATEGORY = 0x1;
+	private static final int DEFAULT_EVENT_CATEGORY = 0x001;
 	
 	private LevelAdapter levelAdapter = new DefaultLevelAdapter();
 

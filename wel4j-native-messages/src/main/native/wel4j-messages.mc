@@ -5,7 +5,7 @@ Language=English
 General
 .
 
-MessageId=0x1000
+MessageId=0x0001
 SymbolicName=LOGENTRY
 Language=English
 %1

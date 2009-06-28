@@ -262,7 +262,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="./Output/wel4j.dll"
+				OutputFile="./Output/wel4j32.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
@@ -357,7 +357,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-        OutputFile="Output/wel4j.dll"
+        OutputFile="./Output/wel4j64.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
         ProgramDatabaseFile=".\Release/wel4j.pdb"
@@ -449,7 +449,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-        OutputFile="./Output/wel4j.dll"
+        OutputFile="./Output/wel4j64.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
@@ -543,7 +543,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="./Output/wel4j.dll"
+				OutputFile="./Output/wel4j32.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"

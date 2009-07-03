@@ -10,8 +10,17 @@
 	<artifactId>wel4j-native</artifactId>
 	<packaging>dll</packaging>
 	<name>wel4j-native</name>
+	<url>http://wel4j.googlecode.com/</url>
 	<description>Native</description>
 
+	<licenses>
+    	<license>
+	      	<name>The Apache Software License, Version 2.0</name>
+	      	<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	      	<distribution>repo</distribution>
+    	</license>
+  	</licenses>
+  	
 	<dependencies>
 		<dependency>
 			<groupId>com.googlecode.wel4j</groupId>

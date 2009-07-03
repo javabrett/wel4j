@@ -9,7 +9,16 @@
 	</parent>
 	<artifactId>wel4j-log4j</artifactId>
 	<name>wel4j-log4j</name>
-	<url>http://maven.apache.org</url>
+	<url>http://wel4j.googlecode.com/</url>
+	
+	<licenses>
+    	<license>
+	      	<name>The Apache Software License, Version 2.0</name>
+	      	<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	      	<distribution>repo</distribution>
+    	</license>
+  	</licenses>
+  	
 	<dependencies>
 		<dependency>
 			<groupId>log4j</groupId>

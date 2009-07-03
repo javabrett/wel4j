@@ -6,10 +6,26 @@
 	<packaging>pom</packaging>
 	<name>Windows Event Log for Java</name>
 	<version>0.5.0-SNAPSHOT</version>
+	<url>http://wel4j.googlecode.com/</url>
 	<description>
 		Windows Event Log for Java (wel4j) allows Java applications to log events to the Microsoft Windows event log via the Java Native Interface (JNI).
 		As well as direct access to the event log, the library provides an Appender for applications which perform application logging via log4j and a Handler for applications which log via java.util.logging (JUL), allowing use of the Windows event log as an output for these frameworks.
 	</description>
+	
+	<licenses>
+    	<license>
+	      	<name>The Apache Software License, Version 2.0</name>
+	      	<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+	      	<distribution>repo</distribution>
+    	</license>
+  	</licenses>
+  	
+  	<scm>
+   		<connection>scm:svn:http://wel4j.googlecode.com/svn/trunk/</connection>
+    	<developerConnection>scm:svn:https://wel4j.googlecode.com/svn/trunk/</developerConnection>
+    	<url>http://code.google.com/p/wel4j/source/browse/</url>
+	</scm>
+  	
 	<build>
 		<pluginManagement>
 			<plugins>

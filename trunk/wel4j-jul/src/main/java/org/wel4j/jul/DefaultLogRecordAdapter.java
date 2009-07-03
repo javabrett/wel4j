@@ -24,7 +24,7 @@ import org.wel4j.WindowsEvent;
 
 public class DefaultLogRecordAdapter implements LogRecordAdapter {
 
-	private static final int DEFAULT_EVENT_ID = 0x0001;
+	private static final int DEFAULT_EVENT_ID = 0x1000;
 	
 	private static final int DEFAULT_EVENT_CATEGORY = 0x001;
 	

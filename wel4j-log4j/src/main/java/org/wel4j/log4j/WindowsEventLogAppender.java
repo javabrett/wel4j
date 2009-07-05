@@ -21,6 +21,7 @@ import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.LoggingEvent;
 import org.wel4j.WindowsEvent;
 import org.wel4j.WindowsEventLog;
+import org.wel4j.WindowsEventLogImpl;
 
 
 public class WindowsEventLogAppender extends AppenderSkeleton implements
@@ -59,7 +60,7 @@ public class WindowsEventLogAppender extends AppenderSkeleton implements
 			windowsEvent.setEventCategory(eventCategory);
 		}
 		
-		WindowsEventLog.log(windowsEvent);
+		getWindowsEventLog().log(windowsEvent);
 	}
 
 	public void close() {
@@ -84,5 +85,9 @@ public class WindowsEventLogAppender extends AppenderSkeleton implements
 	
 	public void setEventCategory(Integer eventCategory) {
 		this.eventCategory = eventCategory;
+	}
+	
+	protected WindowsEventLog getWindowsEventLog() {
+		return WindowsEventLogImpl.getInstance();
 	}
 }

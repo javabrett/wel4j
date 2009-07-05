@@ -28,6 +28,19 @@ public class WindowsEvent {
 	
 	private int eventCategory;
 
+	public WindowsEvent() {
+	}
+	
+	public WindowsEvent(String sourceName, String message, int eventID,
+			WindowsEventSeverity eventSeverity, int eventCategory) {
+		super();
+		this.sourceName = sourceName;
+		this.message = message;
+		this.eventID = eventID;
+		this.eventSeverity = eventSeverity;
+		this.eventCategory = eventCategory;
+	}
+
 	public String getSourceName() {
 		return sourceName;
 	}

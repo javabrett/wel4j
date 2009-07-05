@@ -17,15 +17,22 @@
 package org.wel4j.jul;
 
 import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 import org.wel4j.WindowsEvent;
 import org.wel4j.WindowsEventLog;
+import org.wel4j.WindowsEventLogImpl;
 
 
 public class WindowsEventLogHandler extends Handler {
 
 	private LogRecordAdapter logRecordAdapter = new DefaultLogRecordAdapter();
+	
+	public WindowsEventLogHandler() {
+		super();
+		setLevel(Level.INFO);
+	}
 	
 	@Override
 	public void publish(LogRecord logRecord) {
@@ -37,7 +44,7 @@ public class WindowsEventLogHandler extends Handler {
 		if (windowsEvent.getEventSeverity() == null) {
 			return;
 		}
-		WindowsEventLog.log(windowsEvent);
+		getWindowsEventLog().log(windowsEvent);
 	}
 	
 	@Override
@@ -52,5 +59,9 @@ public class WindowsEventLogHandler extends Handler {
 	
 	public void setLogRecordAdapter(LogRecordAdapter logRecordAdapter) {
 		this.logRecordAdapter = logRecordAdapter;
+	}
+	
+	protected WindowsEventLog getWindowsEventLog() {
+		return WindowsEventLogImpl.getInstance();
 	}
 }

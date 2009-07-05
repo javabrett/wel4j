@@ -25,21 +25,16 @@ public class DefaultLevelAdapter implements LevelAdapter {
 
 	public WindowsEventSeverity windowsEventSeverityFromLevel(Level level) {
 		
-		if (level == Level.OFF) {
-			return WindowsEventSeverity.EVENTLOG_ERROR_TYPE;
-		} else if (level == Level.SEVERE) {
+		if (level == Level.OFF || level == Level.SEVERE) {
 			return WindowsEventSeverity.EVENTLOG_ERROR_TYPE;
 		} else if (level == Level.WARNING) {
 			return WindowsEventSeverity.EVENTLOG_WARNING_TYPE;
-		} else if (level == Level.INFO) {
+		} else if (level == Level.INFO || level == Level.CONFIG || level == Level.FINE || level == Level.FINER || level == Level.FINEST || level == Level.ALL) {
+			// Windows event log does not support events lower than "information" - these will be mapped onto EVENTLOG_INFORMATION_TYPE
+			// but usually filtered out by handler threshold
 			return WindowsEventSeverity.EVENTLOG_INFORMATION_TYPE;
-		} else if (level == Level.CONFIG) {
-			return WindowsEventSeverity.EVENTLOG_INFORMATION_TYPE;
-		} else if (level == Level.FINE || level == Level.FINER || level == Level.FINEST || level == Level.ALL) {
-			return null;
 		} else {
 			return null;			
 		}
 	}
-
 }
